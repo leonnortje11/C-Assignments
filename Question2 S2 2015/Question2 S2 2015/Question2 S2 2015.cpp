@@ -16,21 +16,32 @@ int main()
 	int mathematics, physical_science, english;
 
 	cout << "Please enter your marks for the follow subjects to determine if you qualify for Computer Science.\n";
-	cout << "Matematics:\n";
+	cout << "Mathematics:\n";
 	cin >> mathematics;
+	
 	cout << "Physical Science:\n";
 	cin >> physical_science;
 	cout << "English:\n";
 	cin >> english;
 
-	//Add this as a function call
-	assert(mathematics > 100) || (physical_science > 100) || (english > 100);
-	while (((mathematics >= 60) && (physical_science >= 60) && (english >= 60)))
+	assert((mathematics <= 100) && (physical_science <= 100) && (english <= 100));
+	while ((mathematics >= 60) && (physical_science >= 60) && (english >= 60))
 	{
-		cout << "Congrats!";
+		cout << endl;
+		cout << "Your have entered the following marks:\n"
+			<< "Mathematics = " << mathematics << endl
+			<< "Physical science = " << physical_science << endl
+			<< "English = " << english << endl;
+		cout << "Congrats, you qualify for Computer Science!";
+		break;
 	}
-
-		cout << "You dont qualify!";
+	
+	cout << endl;
+	cout << "Your have entered the following marks:\n"
+		<< "Mathematics = " << mathematics << endl
+		<< "Physical science = " << physical_science << endl
+		<< "English = " << english << endl;
+	cout << "You dont qualify for Computer Science!";
 	
 	return 0;
 }
