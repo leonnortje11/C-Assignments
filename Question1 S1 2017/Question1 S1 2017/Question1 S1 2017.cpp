@@ -12,10 +12,10 @@ using namespace std;
 void introduction();
 //Postcondition: Description of program is written on the screen. 
 
-//selection(char answer);
+void selection(char& answer);
 //Request the user to indicate the type of circumference that should be calculated r = rectangle or c = circle.
 
-//calcCircumference(double radius);
+calcCircumference(double& radius);
 //Calculate the circumference of a circle with one parameter of type double
 
 //calcCircumference(double length, double width);
@@ -27,10 +27,21 @@ double const PI = 3.14285;
 int main()
 {
 
-	introduction();
+	char answer;
+	double radius;
 
-	cout << PI;
-	cout << "What is this: " << PI;
+	introduction();
+	selection(answer);
+
+	if (answer == 'c')
+	{
+		cout << "Please enter the radius of the circle: ";
+		cin >> radius;
+		calcCircumference(radius);
+
+		cout << "The circumference of the circle " << radius;
+
+	}
 
 	return 0;
 }
@@ -41,4 +52,19 @@ void introduction()
 	cout << "This is a test\n";
 }
 
+void selection(char& answer)
+{
+	do
+	{
+		cout << "Please indicate if you want to calculate the circumference for a circle or regtangle?\n";
+		cout << "c = Circle and r = regtangle\n";
+		cin >> answer;
+	} while (!(answer == 'c' || answer == 'r'));
 
+	if (answer == 'c')
+		cout << "You have selected to calculate the circumference of a circle\n";
+
+	if (answer == 'r')
+		cout << "You have selected to calculate the circumference of a triangle\n";
+	
+}
