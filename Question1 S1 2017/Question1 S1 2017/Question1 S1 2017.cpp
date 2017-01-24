@@ -15,7 +15,7 @@ void introduction();
 void selection(char& answer);
 //Request the user to indicate the type of circumference that should be calculated r = rectangle or c = circle.
 
-calcCircumference(double& radius);
+//calcCircumference(double& radius);
 //Calculate the circumference of a circle with one parameter of type double
 
 //calcCircumference(double length, double width);
@@ -37,7 +37,7 @@ int main()
 	{
 		cout << "Please enter the radius of the circle: ";
 		cin >> radius;
-		calcCircumference(radius);
+		//calcCircumference(radius);
 
 		cout << "The circumference of the circle " << radius;
 
