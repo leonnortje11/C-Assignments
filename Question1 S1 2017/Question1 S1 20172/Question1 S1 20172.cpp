@@ -66,5 +66,5 @@ void selection(char& answer)
 
 	if (answer == 'r')
 		cout << "You have selected to calculate the circumference of a triangle\n";
-	
+
 }
