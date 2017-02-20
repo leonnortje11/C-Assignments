@@ -12,8 +12,6 @@
 
 using namespace std;
 
-
-
 int main()
 {
 	char next;
@@ -36,7 +34,7 @@ int main()
 	in_stream.open(in_file_name);
 	if (in_stream.fail())
 	{
-		cout << "input file opening failed.\n";
+		cout << "Input file opening failed.\n";
 		exit(1);
 	}
 
@@ -47,15 +45,12 @@ int main()
 		exit(1);
 	}
 
-	cout << "processing...";
-
 	
 	in_stream.get(next);
 
 	while (!in_stream.eof())
 	{
 		
-
 		do
 		{
 			if (next != ' ')
@@ -71,21 +66,16 @@ int main()
 				in_stream.get(next);
 			}
 			
-		
-
 		} while ((count != 8) || (next == ';'));
 
 		out_stream << "@domain.com" << endl;
 		count = 0;
-		//in_stream.get(next);
 		
 		while (next != ';')
 			{
 				in_stream.get(next);
 			}	
-
 	}
-
 
 	in_stream.close();
 	out_stream.close();
