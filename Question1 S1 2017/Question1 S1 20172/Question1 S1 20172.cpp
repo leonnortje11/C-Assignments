@@ -15,10 +15,10 @@ void introduction();
 void selection(char& answer);
 //Request the user to indicate the type of circumference that should be calculated r = rectangle or c = circle.
 
-//calcCircumference(double& radius);
+void calcCircumference(double& radius);
 //Calculate the circumference of a circle with one parameter of type double
 
-//calcCircumference(double length, double width);
+double calcCircumference(double length, double width);
 //Calculate the circumference of a square by length * width with two parameters of type double
 
 
@@ -29,6 +29,7 @@ int main()
 
 	char answer;
 	double radius;
+	double length, width, total;
 
 	introduction();
 	selection(answer);
@@ -37,34 +38,57 @@ int main()
 	{
 		cout << "Please enter the radius of the circle: ";
 		cin >> radius;
-		//calcCircumference(radius);
+		calcCircumference(radius);
 
-		cout << "The circumference of the circle " << radius;
+		cout << "The circumference of the circle: " << radius << endl;;
 
 	}
+
+	if (answer == 'r')
+	{
+		cout << "Please enter the length and width of the rectangle: ";
+		cin >> length;
+		cin >> width;
+		total = calcCircumference(length, width);
+
+		cout << "The circumference of the rectangle: " << total << endl;;
+
+	}
+
+	system("pause");
 
 	return 0;
 }
 
 void introduction()
 {
-
-	cout << "This is a test\n";
+		cout << "You will have a choice to calculate the circumference of a circle or rectangle.\n";
+		cout << endl;
 }
 
 void selection(char& answer)
 {
 	do
 	{
-		cout << "Please indicate if you want to calculate the circumference for a circle or regtangle?\n";
-		cout << "c = Circle and r = regtangle\n";
+		cout << "Please indicate if you want to calculate the circumference for a circle or rectangle?\n";
+		cout << "c = Circle and r = Rectangle\n";
 		cin >> answer;
 	} while (!(answer == 'c' || answer == 'r'));
 
 	if (answer == 'c')
-		cout << "You have selected to calculate the circumference of a circle\n";
+		cout << "You have selected to calculate the circumference of a circle.\n";
 
 	if (answer == 'r')
-		cout << "You have selected to calculate the circumference of a triangle\n";
+		cout << "You have selected to calculate the circumference of a rectangle.\n";
 
+}
+
+void calcCircumference(double& radius)
+{
+	radius = radius * radius * PI;
+}
+
+double calcCircumference(double length, double width)
+{
+	return (length*width);
 }
