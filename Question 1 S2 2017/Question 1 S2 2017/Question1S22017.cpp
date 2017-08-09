@@ -5,6 +5,15 @@
 // Description: Write a program to determine whether a ticket number is a winning number, and calculate the cash prize for the ticket number
 // Last Changed:
 
+
+//Problem definition
+//Input
+//output
+//Analysis ofthe problem
+//Algorithm
+//Pseudocode of the function
+
+
 #include "stdafx.h"
 #include <iostream>
 using namespace std;
