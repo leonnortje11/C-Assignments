@@ -11,40 +11,91 @@
 using namespace std;
 
 void encrypt(ifstream& in_stream, ofstream& out_stream);
+void decrypt(ifstream& in_stream, ofstream& out_stream);
 
 void show_encypt(ifstream& in_stream, ofstream& out_stream);
 
-//Choice between encrypting or decrypting a file
-//Specify the input and output file names
-//Display both the input and output on the screen
+void show_decypt(ifstream& in_stream, ofstream& out_stream);
+
 
 int main()
 {
 
 	char in_file_name[20], out_file_name[20];
+	char choice;
 	ifstream fin;
 	ofstream fout;
 
-	cout << "Please enter the file name for the input data (maximum of 20 characters): \n";
-	cin >> in_file_name;
+	cout << "Enter your choice to encryp or decrypt your file: ";
+	cin >> choice;
 
-	cout << "Please enter the file name for the output data (maximum of 20 characters): \n";
-	cin >> out_file_name;
+	switch (choice)
+	{
+	case 'E':
+	case 'e':
 
-	fin.open(in_file_name);
-	fout.open(out_file_name);
+		cout << "Please enter the file name for the input data (maximum of 20 characters): \n";
+		cin >> in_file_name;
 
-	encrypt(fin, fout);
+		cout << "Please enter the file name for the output data (maximum of 20 characters): \n";
+		cin >> out_file_name;
 
-	fin.close();
-	fout.close();
+		fin.open(in_file_name);
+		fout.open(out_file_name);
 
-	//fin.open(out_file_name); //open the decrypted file
-	//show_encypt(fin, fout); //show the decrypted file info on screen
+		encrypt(fin, fout);
 
-	fin.close();
-	fout.close();
+		fin.close();
+		fout.close();
 
+		fin.open(out_file_name); //open the encrypted file
+		show_encypt(fin, fout); //show the encrypted file info on screen
+
+		fin.close();
+		fout.close();
+
+		fin.open(in_file_name); //open the decrypted file
+		show_decypt(fin, fout); //show the decrypted file info on screen
+
+		fin.close();
+		fout.close();
+		cout << endl;
+		break;
+
+	case 'D':
+	case 'd':
+		cout << "Please enter the file name for the input data (maximum of 20 characters): \n";
+		cin >> in_file_name;
+
+		cout << "Please enter the file name for the output data (maximum of 20 characters): \n";
+		cin >> out_file_name;
+
+		fin.open(in_file_name);
+		fout.open(out_file_name);
+
+		decrypt(fin, fout);
+
+		fin.close();
+		fout.close();
+
+		fin.open(out_file_name); //open the encrypted file
+		show_encypt(fin, fout); //show the encrypted file info on screen
+
+		fin.close();
+		fout.close();
+
+		fin.open(in_file_name); //open the decrypted file
+		show_decypt(fin, fout); //show the decrypted file info on screen
+
+		fin.close();
+		fout.close();
+		cout << endl;
+		break;
+
+	default:
+		cout << "Thats not the correct choice.\n";
+	}
+	
 	system("pause");
 
     return 0;
@@ -58,148 +109,428 @@ void encrypt(ifstream& in_stream, ofstream& out_stream)
 
 	while (!in_stream.eof())
 
-		in_stream.get(next);
+		//in_stream.get(next);
 	{
 		if ((next == 'a') || (next == 'A'))
 		{
-			out_stream << "b";
+			next = 'b';
+			out_stream << next;
 			in_stream.get(next);
 		}
 
 		else if ((next == 'b') || (next == 'B'))
 		{
-			out_stream << "c";
+			next = 'c';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'c') || (next == 'C'))
 		{
-			out_stream << "d";
+			next = 'd';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'd') || (next == 'D'))
 		{
-			out_stream << "e";
+			next = 'e';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'e') || (next == 'E'))
 		{
-			out_stream << "f";
+			next = 'f';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'f') || (next == 'F'))
 		{
-			out_stream << "g";
+			next = 'g';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'g') || (next == 'G'))
 		{
-			out_stream << "h";
+			next = 'h';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'h') || (next == 'H'))
 		{
-			out_stream << "i";
+			next = 'i';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'i') || (next == 'I'))
 		{
-			out_stream << "j";
+			next = 'j';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'j') || (next == 'J'))
 		{
-			out_stream << "k";
+			next = 'k';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'k') || (next == 'K'))
 		{
-			out_stream << "l";
+			next = 'l';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'l') || (next == 'L'))
 		{
-			out_stream << "m";
+			next = 'm';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'm') || (next == 'M'))
 		{
-			out_stream << "n";
+			next = 'n';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'n') || (next == 'N'))
 		{
-			out_stream << "o";
+			next = 'o';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'o') || (next == 'O'))
 		{
-			out_stream << "p";
+			next = 'p';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'p') || (next == 'P'))
 		{
-			out_stream << "q";
+			next = 'q';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'q') || (next == 'Q'))
 		{
-			out_stream << "r";
+			next = 'r';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'r') || (next == 'R'))
 		{
-			out_stream << "s";
+			next = 's';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 's') || (next == 'S'))
 		{
-			out_stream << "t";
+			next = 't';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 't') || (next == 'T'))
 		{
-			out_stream << "u";
+			next = 'u';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'u') || (next == 'U'))
 		{
-			out_stream << "v";
+			next = 'v';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'v') || (next == 'V'))
 		{
-			out_stream << "w";
+			next = 'w';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'w') || (next == 'W'))
 		{
-			out_stream << "x";
+			next = 'x';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
 		else if ((next == 'x') || (next == 'X'))
 		{
-			out_stream << "a";
+			next = 'y';
+			out_stream << next;
 			in_stream.get(next);
 		}
+
+		else if ((next == 'y') || (next == 'Y'))
+		{
+			next = 'z';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'z') || (next == 'Z'))
+		{
+			next = 'a';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+
 		else if (next == ' ')
 		{
-			out_stream << "";
+			next = ' ';
+			out_stream.put(next);
+			in_stream.get(next);
+		}
+	}
+}
+
+void decrypt(ifstream& in_stream, ofstream& out_stream)
+{
+	char next;
+
+	in_stream.get(next);
+
+	while (!in_stream.eof())
+
+		//in_stream.get(next);
+	{
+		if ((next == 'b') || (next == 'B'))
+		{
+			next = 'a';
+			out_stream << next;
 			in_stream.get(next);
 		}
 
+		else if ((next == 'c') || (next == 'C'))
+		{
+			next = 'b';
+			out_stream << next;
+			in_stream.get(next);
+		}
 
+		else if ((next == 'd') || (next == 'D'))
+		{
+			next = 'c';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'e') || (next == 'E'))
+		{
+			next = 'd';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'f') || (next == 'F'))
+		{
+			next = 'e';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'g') || (next == 'G'))
+		{
+			next = 'f';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'h') || (next == 'H'))
+		{
+			next = 'g';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'i') || (next == 'I'))
+		{
+			next = 'h';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'j') || (next == 'J'))
+		{
+			next = 'i';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'k') || (next == 'K'))
+		{
+			next = 'j';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'l') || (next == 'L'))
+		{
+			next = 'k';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'm') || (next == 'M'))
+		{
+			next = 'l';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'n') || (next == 'N'))
+		{
+			next = 'm';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'o') || (next == 'O'))
+		{
+			next = 'n';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'p') || (next == 'P'))
+		{
+			next = 'o';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'q') || (next == 'Q'))
+		{
+			next = 'p';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'r') || (next == 'R'))
+		{
+			next = 'q';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 's') || (next == 'S'))
+		{
+			next = 'r';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 't') || (next == 'T'))
+		{
+			next = 's';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'u') || (next == 'U'))
+		{
+			next = 't';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'v') || (next == 'V'))
+		{
+			next = 'u';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'w') || (next == 'W'))
+		{
+			next = 'v';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'x') || (next == 'X'))
+		{
+			next = 'w';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'y') || (next == 'Y'))
+		{
+			next = 'x';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'z') || (next == 'Z'))
+		{
+			next = 'y';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if ((next == 'a') || (next == 'A'))
+		{
+			next = 'z';
+			out_stream << next;
+			in_stream.get(next);
+		}
+
+		else if (next == ' ')
+		{
+			next = ' ';
+			out_stream.put(next);
+			in_stream.get(next);
+		}
 	}
 }
+
 
 void show_encypt(ifstream& in_stream, ofstream& out_stream)
 {
 	char encrypt;
 
 	in_stream.get(encrypt);
+	cout << endl;
+	cout << "Content of the encryptyd file: ";
+
+	while (!in_stream.eof())
+	{	
+		cout << encrypt;
+		in_stream.get(encrypt);
+	}
+}
+
+void show_decypt(ifstream& in_stream, ofstream& out_stream)
+{
+	char decrypt;
+
+	in_stream.get(decrypt);
+	cout << endl;
+	cout << "Content of the decrypted file: ";
 
 	while (!in_stream.eof())
 	{
-		cout << encrypt;
-		in_stream.get(encrypt);
+		cout << decrypt;
+		in_stream.get(decrypt);
 	}
 }
